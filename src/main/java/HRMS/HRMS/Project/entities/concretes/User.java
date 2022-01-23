@@ -1,32 +1,28 @@
 package HRMS.HRMS.Project.entities.concretes;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "User")
+@Table(name = "user")
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
     @Id
     @GeneratedValue
-    @Column(name ="UserId")
+    @Column(name ="user_id")
     private int UserId;
 
-    @Column(name = "Password")
+    @Column(name = "password")
     private String password;
 
-    @Column(name = "PasswordAgain")
+    @Column(name = "password_again")
     private String passwordAgain;
 
-    public User() {
-
-    }
-    public User(int userId, String password, String passwordAgain) {
-        UserId = userId;
-        this.password = password;
-        this.passwordAgain = passwordAgain;
-    }
 
 
 }
