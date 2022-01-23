@@ -9,7 +9,6 @@ import javax.persistence.*;
 @Table(name = "JobPositions")
 public class JobPositions {
     @Id
-    @GeneratedValue
     @Column(name = "UserId")
     private int UserId;
 
