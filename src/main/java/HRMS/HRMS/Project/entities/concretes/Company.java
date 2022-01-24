@@ -5,34 +5,30 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "company")
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     @Column(name ="id")
     private int id;
 
-    @Column(name = "first_name")
-    private String first_name;
+    @Column(name = "company_name")
+    private String company_name;
 
-    @Column(name = "last_name")
-    private String last_name;
+    @Column(name = "website")
+    private String website;
 
-    @Column(name="nationality_number")
-    private String nationality_number;
-
-    @Column(name = "date_year")
-    private Date date_year;
+    @Column(name="phone")
+    private String phone;
 
     @Column(name = "login_id")
     private int login_id;
-
 
 
 }

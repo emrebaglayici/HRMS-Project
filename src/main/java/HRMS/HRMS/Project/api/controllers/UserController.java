@@ -1,6 +1,7 @@
 package HRMS.HRMS.Project.api.controllers;
 
 import HRMS.HRMS.Project.business.abstracts.UserService;
+import HRMS.HRMS.Project.core.DataResult;
 import HRMS.HRMS.Project.entities.concretes.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,7 +22,7 @@ public class UserController {
     }
 
     @GetMapping("/getAll")
-    public List<User> getAll(){
+    public DataResult<List<User>> getAll(){
         return this.userService.getAll();
     }
 }

@@ -8,16 +8,19 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "job_positions")
+@Table(name = "work_position")
 @AllArgsConstructor
 @NoArgsConstructor
-public class JobPositions {
+public class WorkPosition {
     @Id
-    @GeneratedValue()
-    @Column(name = "user_id")
-    private int UserId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
 
     @Column(name = "position_name")
-    private String PositionName;
+    private String positionName;
+
+    @Column(name = "modified_user")
+    private int modified_user;
 
 }
