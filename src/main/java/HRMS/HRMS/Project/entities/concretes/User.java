@@ -9,12 +9,12 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "user")
+@Table(name = "user",schema = "public")
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue()
     @Column(name ="id")
     private int id;
 
@@ -30,6 +30,7 @@ public class User {
     @Column(name = "date_year")
     private Date date_year;
 
+    @GeneratedValue()
     @Column(name = "login_id")
     private int login_id;
 

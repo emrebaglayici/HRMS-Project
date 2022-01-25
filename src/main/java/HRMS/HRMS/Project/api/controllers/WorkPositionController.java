@@ -22,7 +22,7 @@ public class WorkPositionController {
     }
 
 
-
+    //İş pozisyonları listelendi
     @GetMapping("/getAll")
     public DataResult<List<WorkPosition>> getAll(){
         return this.workPositionService.getAll();
@@ -31,8 +31,8 @@ public class WorkPositionController {
 
 
     @PostMapping("/add")
-    public Result add(@RequestBody WorkPosition positionName){
-        return this.workPositionService.add(positionName);
+    public Result add(@RequestBody WorkPosition workPosition){
+        return this.workPositionService.add(workPosition);
     }
 
     @GetMapping("/1")

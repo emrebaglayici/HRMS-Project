@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface WorkPositionService {
     DataResult<List<WorkPosition>> getAll();
-    Result add(WorkPosition positionName);
+    Result add(WorkPosition workPosition);
     DataResult<List<WorkPosition>> findById(int id);
 }

@@ -32,8 +32,8 @@ public class WorkPositionManager implements WorkPositionService {
     }
 
     @Override
-    public Result add(WorkPosition positionName){
-        this.workPositionDao.save(positionName);
+    public Result add(WorkPosition workPosition){
+        this.workPositionDao.save(workPosition);
         return new SuccessResult("Data added");
     }
 
