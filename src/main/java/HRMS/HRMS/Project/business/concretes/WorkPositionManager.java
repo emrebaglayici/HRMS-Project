@@ -1,10 +1,10 @@
 package HRMS.HRMS.Project.business.concretes;
 
 import HRMS.HRMS.Project.business.abstracts.WorkPositionService;
-import HRMS.HRMS.Project.core.DataResult;
-import HRMS.HRMS.Project.core.Result;
-import HRMS.HRMS.Project.core.SuccessDataResult;
-import HRMS.HRMS.Project.core.SuccessResult;
+import HRMS.HRMS.Project.core.utilities.results.DataResult;
+import HRMS.HRMS.Project.core.utilities.results.Result;
+import HRMS.HRMS.Project.core.utilities.results.SuccessDataResult;
+import HRMS.HRMS.Project.core.utilities.results.SuccessResult;
 import HRMS.HRMS.Project.dataAccess.abstracts.WorkPositionDao;
 import HRMS.HRMS.Project.entities.concretes.WorkPosition;
 import org.springframework.beans.factory.annotation.Autowired;

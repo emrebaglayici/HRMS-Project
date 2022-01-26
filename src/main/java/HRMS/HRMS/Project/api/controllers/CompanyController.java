@@ -1,8 +1,8 @@
 package HRMS.HRMS.Project.api.controllers;
 
 import HRMS.HRMS.Project.business.abstracts.CompanyService;
-import HRMS.HRMS.Project.core.DataResult;
-import HRMS.HRMS.Project.core.Result;
+import HRMS.HRMS.Project.core.utilities.results.DataResult;
+import HRMS.HRMS.Project.core.utilities.results.Result;
 import HRMS.HRMS.Project.entities.concretes.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

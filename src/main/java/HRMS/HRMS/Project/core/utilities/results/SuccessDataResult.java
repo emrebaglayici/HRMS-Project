@@ -1,4 +1,4 @@
-package HRMS.HRMS.Project.core;
+package HRMS.HRMS.Project.core.utilities.results;
 
 public class SuccessDataResult<T> extends DataResult{
 

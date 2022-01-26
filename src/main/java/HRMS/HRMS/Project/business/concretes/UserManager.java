@@ -1,37 +1,40 @@
 package HRMS.HRMS.Project.business.concretes;
 
-import HRMS.HRMS.Project.business.abstracts.UserService;
-import HRMS.HRMS.Project.core.DataResult;
-import HRMS.HRMS.Project.core.Result;
-import HRMS.HRMS.Project.core.SuccessDataResult;
-import HRMS.HRMS.Project.core.SuccessResult;
-import HRMS.HRMS.Project.dataAccess.abstracts.UserDao;
-import HRMS.HRMS.Project.entities.concretes.User;
+import HRMS.HRMS.Project.core.entities.User;
+import HRMS.HRMS.Project.core.utilities.results.DataResult;
+import HRMS.HRMS.Project.core.utilities.results.Result;
+import HRMS.HRMS.Project.core.utilities.results.SuccessDataResult;
+import HRMS.HRMS.Project.core.utilities.results.SuccessResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import HRMS.HRMS.Project.business.abstracts.UserService;
+import HRMS.HRMS.Project.core.dataAccess.UserDao;
+
 
 @Service
 public class UserManager  implements UserService {
+    //Normalde dataAccess in içindeki UserDao yu implement ediyordu değiştirdim.
     private UserDao userDao;
 
-
+    @Autowired
     public UserManager(UserDao userDao) {
         super();
         this.userDao = userDao;
     }
 
-    @Override
-    public DataResult<List<User>> getAll() {
-        return new SuccessDataResult<List>(
-                this.userDao.findAll()
-                ,"Data listed"
-        );
-    }
 
     @Override
     public Result add(User user) {
         this.userDao.save(user);
-        return new SuccessResult("Çalışan eklendi");
+        return new SuccessResult("Kullanıcı Eklendi");
+    }
+
+    @Override
+    public DataResult<User> findByEmail(String email) {
+        return new SuccessDataResult<User>(
+                this.userDao.findByEmail(email),
+                "Kullanıcı bulundu"
+        );
     }
 }
