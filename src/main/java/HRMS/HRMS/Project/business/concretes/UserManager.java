@@ -1,15 +1,13 @@
 package HRMS.HRMS.Project.business.concretes;
 
-import HRMS.HRMS.Project.core.entities.User;
 import HRMS.HRMS.Project.core.utilities.results.DataResult;
 import HRMS.HRMS.Project.core.utilities.results.Result;
-import HRMS.HRMS.Project.core.utilities.results.SuccessDataResult;
-import HRMS.HRMS.Project.core.utilities.results.SuccessResult;
+import HRMS.HRMS.Project.dataAccess.abstracts.UserDao;
+import HRMS.HRMS.Project.entities.abstracts.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import HRMS.HRMS.Project.business.abstracts.UserService;
-import HRMS.HRMS.Project.core.dataAccess.UserDao;
 
 
 @Service
@@ -23,18 +21,22 @@ public class UserManager  implements UserService {
         this.userDao = userDao;
     }
 
-
     @Override
     public Result add(User user) {
-        this.userDao.save(user);
-        return new SuccessResult("Kullanıcı Eklendi");
+        return null;
     }
 
     @Override
     public DataResult<User> findByEmail(String email) {
-        return new SuccessDataResult<User>(
-                this.userDao.findByEmail(email),
-                "Kullanıcı bulundu"
-        );
+        return null;
     }
+
+
+   /* @Override
+    public Result add(User user) {
+        this.userDao.save(user);
+        return new SuccessResult("Kullanıcı Eklendi");
+    }*/
+
+
 }

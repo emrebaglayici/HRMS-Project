@@ -8,23 +8,16 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "login")
+@Table(name = "admin")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Login {
+public class Admin {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name ="id")
+    @Column(name = "id")
     private int id;
 
-    @Column(name = "password")
-    private String password;
-
-    @Column(name = "password_again")
-    private String password_again;
-
-    @Column(name="is_verified")
-    private boolean is_verified;
-
+    @Column(name = "personal_name")
+    private String personal_name;
 
 }

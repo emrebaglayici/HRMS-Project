@@ -1,5 +1,6 @@
 package HRMS.HRMS.Project.entities.concretes;
 
+import HRMS.HRMS.Project.entities.abstracts.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,13 +9,13 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "company")
+@Table(name = "employer")
 @AllArgsConstructor
 @NoArgsConstructor
-public class Company {
+@PrimaryKeyJoinColumn(name = "id",referencedColumnName = "id")
+public class Employer extends User {
     @Id
-    @GeneratedValue()
-
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name ="id")
     private int id;
 
@@ -26,9 +27,5 @@ public class Company {
 
     @Column(name="phone")
     private String phone;
-
-    @Column(name = "login_id")
-    private int login_id;
-
 
 }
