@@ -1,5 +1,6 @@
 package HRMS.HRMS.Project.business.concretes;
 
+import HRMS.HRMS.Project.business.abstracts.EmployerCheckService;
 import HRMS.HRMS.Project.business.abstracts.EmployerService;
 import HRMS.HRMS.Project.core.utilities.results.DataResult;
 import HRMS.HRMS.Project.core.utilities.results.Result;
@@ -15,12 +16,15 @@ import java.util.List;
 @Service
 public class EmployerManager implements EmployerService {
     private EmployerDao employerDao;
+    private EmployerCheckService employerCheckService;
 
     @Autowired
-    public EmployerManager(EmployerDao employerDao) {
+    public EmployerManager(EmployerDao employerDao, EmployerCheckService employerCheckService) {
         super();
         this.employerDao = employerDao;
+        this.employerCheckService = employerCheckService;
     }
+
 
     @Override
     public DataResult<List<Employer>> getAll() {
@@ -31,7 +35,10 @@ public class EmployerManager implements EmployerService {
 
     @Override
     public Result add(Employer employer) {
-        this.employerDao.save(employer);
+        if(!this.employerCheckService.checkEmployer(employer).isSuccess()){
+            return this.employerCheckService.checkEmployer(employer);
+        }
+        employerDao.save(employer);
         return new SuccessResult("İş veren eklendi");
     }
 }
