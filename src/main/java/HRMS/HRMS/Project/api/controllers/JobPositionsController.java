@@ -18,6 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/jobPositions")
+@CrossOrigin
 public class JobPositionsController {
     private JobPositionsService jobPositionsService;
     @Autowired
