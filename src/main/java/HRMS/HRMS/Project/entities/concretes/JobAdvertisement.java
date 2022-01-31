@@ -51,8 +51,9 @@ public class JobAdvertisement {
     @Column(name = "is_active")
     private boolean is_activated;
 
-    @Column(name = "city_id")
-    private int city_id;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
