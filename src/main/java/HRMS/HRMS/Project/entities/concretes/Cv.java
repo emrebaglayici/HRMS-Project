@@ -31,7 +31,7 @@ public class Cv {
     @Column(name = "image")
     private String image;
 
-    @ManyToOne
+    @ManyToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "employee_id")
     private Employee employee;
 

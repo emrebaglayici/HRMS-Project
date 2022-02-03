@@ -30,10 +30,10 @@ public class Experience {
     private String job_position;
 
     @Column(name = "job_start_date")
-    private LocalDate job_startDate;
+    private String job_startDate;
 
     @Column(name = "job_end_date")
-    private LocalDate job_endDate;
+    private String job_endDate;
 
     @NotNull
     @NotBlank
@@ -41,7 +41,7 @@ public class Experience {
     private boolean working_status;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cv_id")
     private Cv cv;
 }
