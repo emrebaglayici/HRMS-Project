@@ -31,7 +31,7 @@ public class EmployeeCheckManager implements EmployeeCheckService {
 
     @Override
     public Result checkEmployee(Employee employee) {
-        if(employee.getBirth_year().isEmpty()|| employee.getEmail().isEmpty()||employee.getFirst_name().isEmpty()
+        if(employee.getBirth_year().equals(null)|| employee.getEmail().isEmpty()||employee.getFirst_name().isEmpty()
                 ||employee.getLast_name().isEmpty()||employee.getNationality_number().isEmpty()||employee.getPassword().isEmpty()||employee.getPassword_again().isEmpty())
         {
             return new ErrorResult("Tüm alanlar doldurulmalıdır");

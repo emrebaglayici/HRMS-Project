@@ -1,5 +1,6 @@
 package HRMS.HRMS.Project.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.time.LocalDate;
+import java.util.Date;
 
 @Data
 @Entity
@@ -29,11 +30,15 @@ public class Experience {
     @Column(name = "job_position")
     private String job_position;
 
-    @Column(name = "job_start_date")
-    private String job_startDate;
 
+    @Column(name = "job_start_date")
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private Date job_startDate;
+
+    @JsonFormat(pattern = "yyyy-MM-dd")
     @Column(name = "job_end_date")
-    private String job_endDate;
+    private Date job_endDate;
+
 
     @NotNull
     @NotBlank

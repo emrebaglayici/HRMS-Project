@@ -1,5 +1,7 @@
 package HRMS.HRMS.Project.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,12 +10,14 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 @Data
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "school")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class School {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,23 +35,26 @@ public class School {
     private String education_department;
 
     @NotNull
-    @NotBlank
     @Column(name = "graduation_status")
     private boolean graduation_status;
 
-    @NotNull
-    @NotBlank
+
+
+    @JsonFormat(pattern = "yyyy")
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "graduation_year")
-    private String graduation_year;
+    private Date graduation_year;
 
+
+    @JsonFormat(pattern = "yyyy")
     @Column(name = "school_start_date")
-    private String school_start_date;
+    private Date school_start_date;
 
-    @Column(name = "school_end_date")
-    private String school_end_date;
+//    @Column(name = "school_end_date")
+//    private String school_end_date;
 
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cv_id")
     private Cv cv;
 }
