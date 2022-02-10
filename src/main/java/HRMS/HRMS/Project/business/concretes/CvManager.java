@@ -1,5 +1,6 @@
 package HRMS.HRMS.Project.business.concretes;
 
+import HRMS.HRMS.Project.business.abstracts.CvCheckService;
 import HRMS.HRMS.Project.business.abstracts.CvService;
 import HRMS.HRMS.Project.core.concretes.CloudinaryServiceAdapter;
 import HRMS.HRMS.Project.core.utilities.results.*;
@@ -15,15 +16,20 @@ import java.util.List;
 public class CvManager implements CvService {
     private CvDao cvDao;
     private CloudinaryServiceAdapter cloudinaryServiceAdapter;
+    private CvCheckService cvCheckService;
 
     @Autowired
-    public CvManager(CvDao cvDao, CloudinaryServiceAdapter cloudinaryServiceAdapter) {
+    public CvManager(CvDao cvDao, CloudinaryServiceAdapter cloudinaryServiceAdapter,CvCheckService cvCheckService ) {
         this.cvDao = cvDao;
         this.cloudinaryServiceAdapter = cloudinaryServiceAdapter;
+        this.cvCheckService=cvCheckService;
     }
 
     @Override
     public Result add(Cv cv) {
+        if(!this.cvCheckService.checkCv(cv).isSuccess()){
+            return this.cvCheckService.checkCv(cv);
+        }
         this.cvDao.save(cv);
         return new SuccessResult("Cv eklendi");
     }
