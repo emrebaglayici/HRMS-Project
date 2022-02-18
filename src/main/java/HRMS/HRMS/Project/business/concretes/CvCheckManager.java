@@ -21,7 +21,6 @@ public class CvCheckManager implements CvCheckService {
 
     @Override
     public Result checkCv(Cv cv) {
-
         if ((!Pattern.matches("^[a-zA-Z](\\s?[a-zA-Z]){2,35}$"
                 ,cv.getCover_letter()))||(!Pattern.
                 matches("https://github.com/\\?(.*)"

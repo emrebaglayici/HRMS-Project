@@ -8,6 +8,7 @@ import HRMS.HRMS.Project.core.utilities.results.SuccessDataResult;
 import HRMS.HRMS.Project.core.utilities.results.SuccessResult;
 import HRMS.HRMS.Project.dataAccess.abstracts.EmployeeDao;
 import HRMS.HRMS.Project.entities.concretes.Employee;
+import HRMS.HRMS.Project.entities.concretes.Employer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,7 @@ public class EmployeeManager implements EmployeeService {
 
     @Autowired
     public EmployeeManager(EmployeeDao employeeDao, EmployeeCheckService employeeCheckService) {
+        super();
         this.employeeDao = employeeDao;
         this.employeeCheckService = employeeCheckService;
     }
@@ -39,4 +41,6 @@ public class EmployeeManager implements EmployeeService {
                 this.employeeDao.findAll(),"İş Arayanlar Listelendi"
         );
     }
+
+
 }

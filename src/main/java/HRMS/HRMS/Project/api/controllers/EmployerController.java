@@ -4,6 +4,7 @@ import HRMS.HRMS.Project.business.abstracts.EmployerService;
 import HRMS.HRMS.Project.core.utilities.results.DataResult;
 import HRMS.HRMS.Project.core.utilities.results.ErrorDataResult;
 import HRMS.HRMS.Project.core.utilities.results.Result;
+import HRMS.HRMS.Project.entities.concretes.Cv;
 import HRMS.HRMS.Project.entities.concretes.Employer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/employers")
-@CrossOrigin
+@CrossOrigin("*")
 public class EmployerController {
     private EmployerService employerService;
 
@@ -32,6 +33,11 @@ public class EmployerController {
     @PostMapping("/add")
     public ResponseEntity<?> add(@Valid @RequestBody Employer employer){
         return ResponseEntity.ok(this.employerService.add(employer));
+    }
+
+    @GetMapping("/getAllByEmployeeId")
+    public DataResult<List<Employer>> getEmployeeById(@RequestParam int employer_id){
+        return this.employerService.getById(employer_id);
     }
 
     @GetMapping("/getAll")

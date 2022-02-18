@@ -9,4 +9,5 @@ import java.util.List;
 public interface EmployerService {
     DataResult<List<Employer>> getAll();
     Result add(Employer employer);
+    DataResult<List<Employer>> getById(int employer_id);
 }

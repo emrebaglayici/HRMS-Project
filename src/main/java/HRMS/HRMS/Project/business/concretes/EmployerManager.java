@@ -41,4 +41,13 @@ public class EmployerManager implements EmployerService {
         employerDao.save(employer);
         return new SuccessResult("İş veren eklendi");
     }
+
+    @Override
+    public DataResult<List<Employer>> getById(int employer_id) {
+        return new SuccessDataResult<List<Employer>>(
+                this.employerDao.getById(employer_id),
+                "İş verenler Id lerine göre listelendi"
+        );
+    }
+
 }
