@@ -56,20 +56,6 @@ public class JobAdvertisementController {
     public DataResult<List<JobAdvertisement>> getAllEmployersActiveAds(@RequestParam int employer_id){
         return this.jobAdvertisementService.getAllEmployersActiveAds(employer_id);
     }
-    /*@GetMapping("/findAllByActive")
-    public DataResult<List<JobAdvertisement>> getAllByIs_activedTrue(){
-        return this.jobAdvertisementService.getAllByIs_activedTrue();
-    }
-
-    @GetMapping("/getAllByIsActiveTrueOrderByCreation_timeDesc")
-    public DataResult<List<JobAdvertisement>> getAllByIs_activedTrueOrderByCreation_timeDesc(){
-        return this.jobAdvertisementService.getAllByIs_activedTrueOrderByCreation_timeDesc();
-    }
-    */
-    /*@GetMapping("/getAllByEmployer_IdAndIsActiveTrue")
-    public DataResult<List<JobAdvertisement>> getAllByEmployer_IdAndIs_activatedTrue(@RequestParam int employer_id){
-        return this.jobAdvertisementService.getAllByEmployer_IdAndIsActivatedTrue(employer_id);
-    }*/
 
     @PutMapping("/setActive")
     public Result setActivate(@RequestParam int id,@RequestParam boolean result){

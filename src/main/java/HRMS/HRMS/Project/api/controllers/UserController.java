@@ -41,15 +41,4 @@ public class UserController {
         return errors;
     }
 
-    //İş arayanlar listelendi
-    /*@GetMapping("/getAll")
-    public DataResult<List<User>> getAll(){
-        return this.userService.getAll();
-    }*/
-
-    //İş arayanlar sisteme kayıt oldu
-    /*@PostMapping( "/UserRegister")
-    public Result add(@RequestBody User user){
-        return this.userService.add(user);
-    }*/
 }

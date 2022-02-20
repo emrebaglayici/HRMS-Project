@@ -3,7 +3,6 @@ package HRMS.HRMS.Project.api.controllers;
 import HRMS.HRMS.Project.business.abstracts.EmployeeService;
 import HRMS.HRMS.Project.core.utilities.results.DataResult;
 import HRMS.HRMS.Project.core.utilities.results.ErrorDataResult;
-import HRMS.HRMS.Project.entities.concretes.Cv;
 import HRMS.HRMS.Project.entities.concretes.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
